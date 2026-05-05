@@ -1,212 +1,146 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
 <title>Fold & Form | Creatis</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400&display=swap');
+
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --ink:#0e0c0a;
-  --paper:#f0ebe2;
-  --warm:#e8dfd3;
-  --deep:#1c1815;
-  --surface:#161310;
-  --card:#1f1b17;
-  --card2:#261f19;
-  --gold:#c8923a;
-  --gold2:#e8b46a;
-  --gold-pale:#2a1f10;
-  --copper:#b56b3a;
-  --muted:#7a6e62;
-  --faint:#4a4238;
-  --border:#2e2620;
-  --border2:#3d3328;
-  --text:#d4c9bc;
-  --text2:#a09080;
-  --accent-pl:#8a3a6b;
-  --accent-sm:#3a6b5a;
-  --accent-fo:#2a5a8a;
-  --accent-sr:#8a5a2a;
-  --r:12px;
+  --ink:#1a1714;
+  --parchment:#f7f3ec;
+  --warm:#ede7db;
+  --accent:#7c3e2b;
+  --accent2:#c4613e;
+  --accent-pale:#f5ebe5;
+  --border:#d8cfc3;
+  --muted:#8a7f74;
+  --faint:#c4b9ae;
+  --surface:#fdfaf6;
+  --r:10px;
 }
 
 html{-webkit-text-size-adjust:100%}
 body{
-  font-family:'Space Mono',monospace;
-  background:var(--surface);
-  color:var(--text);
+  font-family:'DM Mono',monospace;
+  background:var(--parchment);
+  color:var(--ink);
   min-height:100vh;
   line-height:1.65;
-  background-image:
-    repeating-linear-gradient(0deg,transparent,transparent 3px,rgba(255,255,255,.012) 3px,rgba(255,255,255,.012) 4px),
-    repeating-linear-gradient(90deg,transparent,transparent 8px,rgba(255,255,255,.008) 8px,rgba(255,255,255,.008) 9px);
+  background-image:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23c4b9ae' fill-opacity='0.13'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
 }
-
-.app{max-width:620px;margin:0 auto;padding:2.5rem 1rem 5rem}
+.app{max-width:600px;margin:0 auto;padding:2rem 1rem 4rem}
 
 /* Header */
-.site-header{text-align:center;margin-bottom:3rem;padding-bottom:2rem;border-bottom:1px solid var(--border)}
-.eyebrow{
-  font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.22em;
-  color:var(--gold);text-transform:uppercase;margin-bottom:.75rem;
-  display:flex;align-items:center;justify-content:center;gap:12px;
-}
-.eyebrow::before,.eyebrow::after{content:'';flex:1;max-width:50px;height:1px;background:linear-gradient(90deg,transparent,var(--gold))}
-.eyebrow::after{background:linear-gradient(90deg,var(--gold),transparent)}
-.site-header h1{
-  font-family:'Playfair Display',Georgia,serif;
-  font-size:clamp(36px,9vw,56px);font-weight:400;letter-spacing:-.5px;line-height:1.05;
-  color:var(--paper);
-}
-.site-header h1 em{font-style:italic;color:var(--gold)}
-.site-header .sub{
-  font-size:11px;color:var(--text2);margin-top:.85rem;
-  letter-spacing:.12em;text-transform:uppercase;
-}
-.thread-line{
-  width:100%;height:1px;margin-top:1.5rem;
-  background:linear-gradient(90deg,transparent,var(--gold),var(--copper),var(--gold),transparent);
-  opacity:.35;
-}
+.site-header{text-align:center;margin-bottom:2.5rem;padding-bottom:1.5rem;border-bottom:1px solid var(--border)}
+.site-header .eyebrow{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.18em;color:var(--muted);text-transform:uppercase;margin-bottom:.5rem}
+.site-header h1{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(32px,8vw,48px);font-weight:300;letter-spacing:-.5px;line-height:1.1}
+.site-header h1 em{font-style:italic;color:var(--accent2)}
+.site-header .sub{font-family:'Cormorant Garamond',Georgia,serif;font-size:15px;color:var(--muted);margin-top:.6rem;font-weight:300}
 
-/* Nav */
-.nav{display:flex;flex-direction:column;gap:8px;margin-bottom:2rem}
-.nav-item{
-  display:flex;align-items:center;gap:14px;
-  padding:14px 18px;border-radius:var(--r);
-  border:1px solid var(--border);background:var(--card);
-  cursor:pointer;-webkit-tap-highlight-color:transparent;
-  transition:all .2s;
+/* Nav pills */
+.nav{display:flex;gap:6px;flex-wrap:wrap;justify-content:center;margin-bottom:2rem}
+.nav-pill{
+  font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;
+  padding:7px 14px;border-radius:99px;border:1px solid var(--border);
+  background:transparent;color:var(--muted);cursor:pointer;
+  transition:all .18s;-webkit-tap-highlight-color:transparent;
 }
-.nav-item:hover{border-color:var(--border2);background:var(--card2)}
-.nav-item.active{border-color:var(--gold);background:var(--gold-pale)}
-.nav-item-num{
-  font-size:10px;letter-spacing:.1em;color:var(--faint);
-  width:22px;flex-shrink:0;
-}
-.nav-item.active .nav-item-num{color:var(--gold)}
-.nav-item-name{
-  font-family:'Playfair Display',serif;font-size:16px;font-weight:400;
-  color:var(--text);flex:1;
-}
-.nav-item.active .nav-item-name{color:var(--paper)}
-.nav-item-tag{font-size:9px;color:var(--faint);letter-spacing:.08em}
-.nav-item.active .nav-item-tag{color:var(--gold)}
-.nav-swatch{width:6px;height:28px;border-radius:3px;flex-shrink:0}
+.nav-pill:hover{border-color:var(--accent);color:var(--accent)}
+.nav-pill.active{background:var(--ink);color:var(--parchment);border-color:var(--ink)}
 
-/* Content card */
-.cat-card{display:none;animation:fadeUp .35s ease both}
-.cat-card.visible{display:block}
-@keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+/* Category card */
+.cat-card{
+  background:var(--surface);border:1px solid var(--border);border-radius:var(--r);
+  overflow:hidden;display:none;
+}
+.cat-card.visible{display:block;animation:fadeUp .35s ease both}
+@keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
 
-/* Hero */
+/* Category hero */
 .cat-hero{
-  padding:2rem 1.5rem 1.5rem;
-  border:1px solid var(--border);border-radius:var(--r) var(--r) 0 0;
+  padding:1.75rem 1.5rem 1.25rem;
+  border-bottom:1px solid var(--border);
   position:relative;overflow:hidden;
-  background:var(--card);
 }
-.cat-hero::after{
-  content:'';position:absolute;top:0;left:0;right:0;bottom:0;
-  background:radial-gradient(ellipse at 80% 20%,var(--hero-glow,rgba(200,146,58,.06)) 0%,transparent 65%);
-  pointer-events:none;
+.cat-hero::before{
+  content:'';position:absolute;right:-20px;top:-20px;
+  width:120px;height:120px;border-radius:50%;opacity:.08;
 }
-.cat-num{
-  font-size:10px;letter-spacing:.18em;color:var(--faint);
-  text-transform:uppercase;margin-bottom:.5rem;
-}
-.cat-title{
-  font-family:'Playfair Display',serif;
-  font-size:clamp(28px,6vw,40px);font-weight:400;letter-spacing:-.3px;
-  color:var(--paper);line-height:1.1;
-}
-.cat-title em{font-style:italic;color:var(--gold2)}
-.cat-tagline{font-size:10px;color:var(--text2);margin-top:.5rem;letter-spacing:.1em;text-transform:uppercase}
-.cat-chips{display:flex;flex-wrap:wrap;gap:5px;margin-top:1.1rem}
-.cat-chip{
-  font-size:9px;padding:4px 10px;border-radius:99px;
-  background:var(--gold-pale);color:var(--gold);
-  border:1px solid rgba(200,146,58,.3);letter-spacing:.05em;
-}
+.cat-hero.pleating::before{background:radial-gradient(circle,#8a3a6b,transparent)}
+.cat-hero.smocking::before{background:radial-gradient(circle,#3a6b5a,transparent)}
+.cat-hero.folding::before{background:radial-gradient(circle,#2a5a8a,transparent)}
+.cat-hero.slash::before{background:radial-gradient(circle,#8a5a2a,transparent)}
 
-/* Hint */
-.cat-hint{
-  padding:.75rem 1.25rem;
-  background:var(--card2);
-  border-left:3px solid var(--gold);
-  border-right:1px solid var(--border);
-  font-size:10px;color:var(--text2);line-height:1.7;letter-spacing:.04em;
+.cat-num{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.15em;color:var(--faint);text-transform:uppercase;margin-bottom:.4rem}
+.cat-title{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(22px,5vw,30px);font-weight:300;letter-spacing:-.3px}
+.cat-title em{font-style:italic;color:var(--accent2)}
+.cat-tagline{font-size:14px;color:var(--muted);margin-top:.4rem;font-family:'DM Mono',monospace;font-weight:300}
+
+.stitch-chips{display:flex;flex-wrap:wrap;gap:5px;margin-top:1rem}
+.stitch-chip{
+  font-size:11px;padding:3px 10px;border-radius:99px;
+  background:var(--accent-pale);color:var(--accent);border:1px solid #dfc4a8;
+  font-family:'DM Mono',monospace;
 }
 
 /* Items */
-.items-list{
-  border:1px solid var(--border);border-top:none;
-  border-radius:0 0 var(--r) var(--r);
-  background:var(--card);
-  overflow:hidden;
-}
-.item{border-top:1px solid var(--border)}
-.item:first-child{border-top:none}
-.item-header{
-  display:flex;align-items:flex-start;gap:14px;
-  padding:1.1rem 1.25rem;cursor:pointer;
-  -webkit-tap-highlight-color:transparent;
-  transition:background .18s;
-}
-.item-header:hover{background:var(--card2)}
+.items-list{padding:.75rem 1.5rem 1.25rem}
+.item{padding:.9rem 0;border-bottom:1px solid var(--border)}
+.item:last-child{border-bottom:none}
+.item-header{display:flex;align-items:flex-start;gap:12px;cursor:pointer;-webkit-tap-highlight-color:transparent}
+
 .item-num{
-  width:34px;height:34px;flex-shrink:0;border-radius:7px;
-  border:1px solid var(--border2);
+  width:36px;height:36px;flex-shrink:0;border-radius:8px;
+  background:var(--warm);border:1px solid var(--border);
   display:flex;align-items:center;justify-content:center;
-  font-size:10px;color:var(--gold);letter-spacing:.05em;
-  background:var(--gold-pale);
+  font-family:'DM Mono',monospace;font-size:11px;color:var(--accent);font-weight:400;
 }
 .item-title-wrap{flex:1}
-.item-name{
-  font-family:'Playfair Display',serif;
-  font-size:18px;font-weight:400;color:var(--paper);
-}
-.item-sub{font-size:9px;color:var(--text2);margin-top:3px;letter-spacing:.07em;text-transform:uppercase}
-.item-toggle{
-  font-size:20px;color:var(--faint);margin-left:auto;
-  transition:transform .25s,color .18s;flex-shrink:0;margin-top:3px;
-  width:24px;text-align:center;
-}
-.item-toggle.open{transform:rotate(45deg);color:var(--gold)}
+.item-name{font-family:'Cormorant Garamond',Georgia,serif;font-size:17px;font-weight:400}
+.item-sub{font-size:12px;color:var(--muted);font-family:'DM Mono',monospace;margin-top:2px}
+.item-toggle{font-size:18px;color:var(--faint);margin-left:auto;transition:transform .2s;flex-shrink:0;margin-top:4px}
+.item-toggle.open{transform:rotate(45deg);color:var(--accent2)}
 
-/* Body */
-.item-body{display:none;padding:0 1.25rem 1.25rem 1.25rem;padding-left:calc(1.25rem + 34px + 14px)}
-.item-body.open{display:block;animation:bodyIn .25s ease both}
-@keyframes bodyIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+.item-body{display:none;padding-top:.85rem;padding-left:48px}
+.item-body.open{display:block}
 
 .item-diagram{
-  background:var(--deep);border:1px solid var(--border2);
-  border-radius:8px;padding:16px 12px;margin-bottom:.85rem;
+  background:var(--warm);border:1px solid var(--border);
+  border-radius:8px;padding:12px;margin-bottom:.75rem;
   display:flex;align-items:center;justify-content:center;
 }
-.item-diagram svg{width:100%;max-width:300px;height:auto;display:block}
+.item-diagram svg{width:100%;max-width:280px;height:auto;display:block}
 
-.item-desc{
-  font-family:'Playfair Display',serif;
-  font-size:15px;color:var(--text);line-height:1.75;font-weight:400;
+.item-desc{font-family:'Cormorant Garamond',Georgia,serif;font-size:15px;color:#4a4540;line-height:1.7}
+.item-detail{font-family:'DM Mono',monospace;font-size:11px;color:var(--muted);margin-top:.55rem;line-height:1.65}
+.item-detail strong{color:var(--accent)}
+
+.item-difficulty{display:inline-flex;align-items:center;gap:6px;margin-top:.65rem;font-family:'DM Mono',monospace;font-size:11px;color:var(--muted)}
+.diff-dot{width:7px;height:7px;border-radius:50%;background:var(--faint)}
+.diff-dot.on{background:var(--accent2)}
+
+/* Hint banner */
+.cat-hint{
+  margin:0 1.5rem .25rem;
+  padding:.65rem .9rem;
+  background:var(--warm);
+  border:1px solid var(--border);
+  border-radius:8px;
+  font-family:'DM Mono',monospace;
+  font-size:11px;
+  color:var(--muted);
+  line-height:1.6;
+  letter-spacing:.01em;
 }
-.item-detail{font-size:10px;color:var(--text2);margin-top:.75rem;line-height:1.8;letter-spacing:.03em}
-.item-detail strong{color:var(--gold);font-weight:700}
-
-.difficulty-bar{display:flex;align-items:center;gap:8px;margin-top:.85rem}
-.diff-seg{height:3px;border-radius:2px;background:var(--border2);flex:1;max-width:28px;transition:background .2s}
-.diff-seg.on-1{background:#5DCAA5}
-.diff-seg.on-2{background:#7F77DD}
-.diff-seg.on-3{background:#D85A30}
-.diff-label{font-size:9px;color:var(--faint);letter-spacing:.1em;text-transform:uppercase}
 
 /* Footer */
-.footer{text-align:center;margin-top:2.5rem;padding-top:1.5rem;border-top:1px solid var(--border)}
-.footer p{font-size:10px;color:var(--faint);letter-spacing:.1em}
-.footer a{color:var(--gold);text-decoration:none}
-.footer a:hover{color:var(--gold2)}
+.footer{text-align:center;margin-top:2rem;padding-top:1.5rem;border-top:1px solid var(--border)}
+.footer p{font-size:13px;color:var(--muted)}
+.footer a{color:var(--accent);text-decoration:none}
+.footer a:hover{text-decoration:underline}
 </style>
 </head>
 <body>
@@ -214,445 +148,316 @@ body{
 
   <div class="site-header">
     <div class="eyebrow">Creatis</div>
-    <h1>Fold<br><em>& Form</em></h1>
+    <h1>Fold <em>&amp; Form</em></h1>
     <div class="sub">Four techniques · endless dimension</div>
-    <div class="thread-line"></div>
   </div>
 
   <div class="nav" id="nav"></div>
   <div id="content"></div>
 
   <div class="footer">
-    <p><a href="http://bizemind.com" target="_blank">bizemind</a> — Built by Creatis</p>
+    <p>Built by <a href="https://creatis.in/pages/stack" target="_blank">The Creatis Stack</a></p>
   </div>
 
 </div>
-
 <script>
-// ── SVG Diagrams ─────────────────────────────────────────────────────────────
 const DIAG = {
-
-// PLEATING ──────────────────────────────────────────────────────────────────
-pl_knife:`<svg viewBox="0 0 280 120" xmlns="http://www.w3.org/2000/svg">
-  <line x1="10" y1="100" x2="270" y2="100" stroke="#3d3328" stroke-width="0.75"/>
-  <!-- fabric base -->
-  <rect x="10" y="60" width="260" height="36" rx="2" fill="#1a1410" stroke="#3d3328" stroke-width="1"/>
-  <!-- pleats - all same direction -->
-  <g fill="#8a3a6b" opacity="0.85">
-    <polygon points="30,60 46,60 46,40 42,40"/>
-    <polygon points="42,40 46,40 46,60 30,60"/>
-    <polygon points="66,60 82,60 82,40 78,40"/>
-    <polygon points="78,40 82,40 82,60 66,60"/>
-    <polygon points="102,60 118,60 118,40 114,40"/>
-    <polygon points="114,40 118,40 118,60 102,60"/>
-    <polygon points="138,60 154,60 154,40 150,40"/>
-    <polygon points="150,40 154,40 154,60 138,60"/>
+pl_knife:`<svg viewBox="0 0 220 110" xmlns="http://www.w3.org/2000/svg">
+  <line x1="10" y1="95" x2="210" y2="95" stroke="#d8cfc3" stroke-width="0.75"/>
+  <rect x="10" y="60" width="200" height="30" rx="2" fill="#ede7db" stroke="#d8cfc3" stroke-width="1"/>
+  <rect x="30" y="38" width="16" height="22" fill="#c4b9ae" opacity="0.55"/>
+  <rect x="64" y="38" width="16" height="22" fill="#c4b9ae" opacity="0.55"/>
+  <rect x="98" y="38" width="16" height="22" fill="#c4b9ae" opacity="0.55"/>
+  <rect x="132" y="38" width="16" height="22" fill="#c4b9ae" opacity="0.55"/>
+  <line x1="30" y1="38" x2="30" y2="60" stroke="#7c3e2b" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="64" y1="38" x2="64" y2="60" stroke="#7c3e2b" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="98" y1="38" x2="98" y2="60" stroke="#7c3e2b" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="132" y1="38" x2="132" y2="60" stroke="#7c3e2b" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="10" y1="64" x2="160" y2="64" stroke="#c4613e" stroke-width="1" stroke-dasharray="4 3" opacity="0.5"/>
+  <text x="172" y="50" font-size="9" fill="#8a7f74" font-family="sans-serif">all →</text>
+  <text x="110" y="106" text-anchor="middle" font-size="9" fill="#8a7f74" font-family="sans-serif">all folds face one direction</text>
+</svg>`,
+pl_box:`<svg viewBox="0 0 220 110" xmlns="http://www.w3.org/2000/svg">
+  <defs><marker id="a1" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="4" markerHeight="4" orient="auto-start-reverse"><path d="M2 2L8 5L2 8" fill="none" stroke="#7c3e2b" stroke-width="1.5" stroke-linecap="round"/></marker></defs>
+  <line x1="10" y1="95" x2="210" y2="95" stroke="#d8cfc3" stroke-width="0.75"/>
+  <rect x="10" y="60" width="200" height="30" rx="2" fill="#ede7db" stroke="#d8cfc3" stroke-width="1"/>
+  <line x1="30" y1="38" x2="30" y2="60" stroke="#7c3e2b" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="62" y1="38" x2="62" y2="60" stroke="#7c3e2b" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="104" y1="38" x2="104" y2="60" stroke="#7c3e2b" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="136" y1="38" x2="136" y2="60" stroke="#7c3e2b" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="30" y1="50" x2="46" y2="50" stroke="#c4613e" stroke-width="1.5" stroke-linecap="round" marker-end="url(#a1)"/>
+  <line x1="62" y1="50" x2="46" y2="50" stroke="#c4613e" stroke-width="1.5" stroke-linecap="round" marker-end="url(#a1)"/>
+  <line x1="104" y1="50" x2="120" y2="50" stroke="#c4613e" stroke-width="1.5" stroke-linecap="round" marker-end="url(#a1)"/>
+  <line x1="136" y1="50" x2="120" y2="50" stroke="#c4613e" stroke-width="1.5" stroke-linecap="round" marker-end="url(#a1)"/>
+  <text x="110" y="106" text-anchor="middle" font-size="9" fill="#8a7f74" font-family="sans-serif">two folds mirror at centre</text>
+</svg>`,
+pl_accordion:`<svg viewBox="0 0 220 110" xmlns="http://www.w3.org/2000/svg">
+  <line x1="10" y1="100" x2="210" y2="100" stroke="#d8cfc3" stroke-width="0.75"/>
+  <polyline points="14,28 36,72 58,28 80,72 102,28 124,72 146,28 168,72 190,28"
+    fill="none" stroke="#7c3e2b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="36" cy="72" r="3" fill="#c4613e" opacity="0.65"/>
+  <circle cx="80" cy="72" r="3" fill="#c4613e" opacity="0.65"/>
+  <circle cx="124" cy="72" r="3" fill="#c4613e" opacity="0.65"/>
+  <circle cx="168" cy="72" r="3" fill="#c4613e" opacity="0.65"/>
+  <circle cx="14" cy="28" r="3" fill="#c4b9ae" opacity="0.6"/>
+  <circle cx="58" cy="28" r="3" fill="#c4b9ae" opacity="0.6"/>
+  <circle cx="102" cy="28" r="3" fill="#c4b9ae" opacity="0.6"/>
+  <circle cx="146" cy="28" r="3" fill="#c4b9ae" opacity="0.6"/>
+  <text x="110" y="108" text-anchor="middle" font-size="9" fill="#8a7f74" font-family="sans-serif">equal up + down folds</text>
+</svg>`,
+sm_cable:`<svg viewBox="0 0 220 110" xmlns="http://www.w3.org/2000/svg">
+  <g opacity="0.13">
+    <line x1="22" y1="16" x2="22" y2="88" stroke="#3a6b5a" stroke-width="6" stroke-linecap="round"/>
+    <line x1="46" y1="16" x2="46" y2="88" stroke="#3a6b5a" stroke-width="6" stroke-linecap="round"/>
+    <line x1="70" y1="16" x2="70" y2="88" stroke="#3a6b5a" stroke-width="6" stroke-linecap="round"/>
+    <line x1="94" y1="16" x2="94" y2="88" stroke="#3a6b5a" stroke-width="6" stroke-linecap="round"/>
+    <line x1="118" y1="16" x2="118" y2="88" stroke="#3a6b5a" stroke-width="6" stroke-linecap="round"/>
+    <line x1="142" y1="16" x2="142" y2="88" stroke="#3a6b5a" stroke-width="6" stroke-linecap="round"/>
+    <line x1="166" y1="16" x2="166" y2="88" stroke="#3a6b5a" stroke-width="6" stroke-linecap="round"/>
+    <line x1="190" y1="16" x2="190" y2="88" stroke="#3a6b5a" stroke-width="6" stroke-linecap="round"/>
   </g>
-  <!-- pleat folds -->
-  <line x1="30" y1="40" x2="30" y2="60" stroke="#d490b8" stroke-width="2.5" stroke-linecap="round"/>
-  <line x1="66" y1="40" x2="66" y2="60" stroke="#d490b8" stroke-width="2.5" stroke-linecap="round"/>
-  <line x1="102" y1="40" x2="102" y2="60" stroke="#d490b8" stroke-width="2.5" stroke-linecap="round"/>
-  <line x1="138" y1="40" x2="138" y2="60" stroke="#d490b8" stroke-width="2.5" stroke-linecap="round"/>
-  <!-- stitch line at top -->
-  <line x1="10" y1="64" x2="175" y2="64" stroke="#c8923a" stroke-width="1.2" stroke-dasharray="4 3" opacity="0.6"/>
-  <text x="200" y="50" font-size="9" fill="#7a6e62" font-family="monospace">all face</text>
-  <text x="200" y="62" font-size="9" fill="#7a6e62" font-family="monospace">one way →</text>
+  <line x1="22" y1="40" x2="46" y2="40" stroke="#3a6b5a" stroke-width="2.2" stroke-linecap="round"/>
+  <line x1="46" y1="50" x2="70" y2="50" stroke="#3a6b5a" stroke-width="2.2" stroke-linecap="round"/>
+  <line x1="70" y1="40" x2="94" y2="40" stroke="#3a6b5a" stroke-width="2.2" stroke-linecap="round"/>
+  <line x1="94" y1="50" x2="118" y2="50" stroke="#3a6b5a" stroke-width="2.2" stroke-linecap="round"/>
+  <line x1="118" y1="40" x2="142" y2="40" stroke="#3a6b5a" stroke-width="2.2" stroke-linecap="round"/>
+  <line x1="142" y1="50" x2="166" y2="50" stroke="#3a6b5a" stroke-width="2.2" stroke-linecap="round"/>
+  <line x1="166" y1="40" x2="190" y2="40" stroke="#3a6b5a" stroke-width="2.2" stroke-linecap="round"/>
+  <circle cx="22" cy="40" r="2.5" fill="#7c3e2b"/><circle cx="46" cy="50" r="2.5" fill="#7c3e2b"/>
+  <circle cx="70" cy="40" r="2.5" fill="#7c3e2b"/><circle cx="94" cy="50" r="2.5" fill="#7c3e2b"/>
+  <circle cx="118" cy="40" r="2.5" fill="#7c3e2b"/><circle cx="142" cy="50" r="2.5" fill="#7c3e2b"/>
+  <circle cx="166" cy="40" r="2.5" fill="#7c3e2b"/><circle cx="190" cy="50" r="2.5" fill="#7c3e2b"/>
+  <text x="110" y="104" text-anchor="middle" font-size="9" fill="#8a7f74" font-family="sans-serif">thread above · below alternating</text>
 </svg>`,
-
-pl_box:`<svg viewBox="0 0 280 120" xmlns="http://www.w3.org/2000/svg">
-  <line x1="10" y1="100" x2="270" y2="100" stroke="#3d3328" stroke-width="0.75"/>
-  <rect x="10" y="60" width="260" height="36" rx="2" fill="#1a1410" stroke="#3d3328" stroke-width="1"/>
-  <!-- box pleats: two folds meeting in the middle -->
-  <line x1="30" y1="40" x2="30" y2="60" stroke="#d490b8" stroke-width="2.5" stroke-linecap="round"/>
-  <line x1="60" y1="40" x2="60" y2="60" stroke="#d490b8" stroke-width="2.5" stroke-linecap="round"/>
-  <line x1="100" y1="40" x2="100" y2="60" stroke="#d490b8" stroke-width="2.5" stroke-linecap="round"/>
-  <line x1="130" y1="40" x2="130" y2="60" stroke="#d490b8" stroke-width="2.5" stroke-linecap="round"/>
-  <line x1="170" y1="40" x2="170" y2="60" stroke="#d490b8" stroke-width="2.5" stroke-linecap="round"/>
-  <line x1="200" y1="40" x2="200" y2="60" stroke="#d490b8" stroke-width="2.5" stroke-linecap="round"/>
-  <!-- arrows showing folds meeting at centre -->
-  <path d="M30 50 L45 50" stroke="#c8923a" stroke-width="1.5" stroke-linecap="round" marker-end="url(#arr)"/>
-  <path d="M60 50 L45 50" stroke="#c8923a" stroke-width="1.5" stroke-linecap="round" marker-end="url(#arr)"/>
-  <defs><marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="4" markerHeight="4" orient="auto-start-reverse"><path d="M2 2L8 5L2 8" fill="none" stroke="#c8923a" stroke-width="1.5" stroke-linecap="round"/></marker></defs>
-  <path d="M100 50 L115 50" stroke="#c8923a" stroke-width="1.5" stroke-linecap="round" marker-end="url(#arr)"/>
-  <path d="M130 50 L115 50" stroke="#c8923a" stroke-width="1.5" stroke-linecap="round" marker-end="url(#arr)"/>
-  <path d="M170 50 L185 50" stroke="#c8923a" stroke-width="1.5" stroke-linecap="round" marker-end="url(#arr)"/>
-  <path d="M200 50 L185 50" stroke="#c8923a" stroke-width="1.5" stroke-linecap="round" marker-end="url(#arr)"/>
-  <line x1="10" y1="64" x2="240" y2="64" stroke="#c8923a" stroke-width="1" stroke-dasharray="4 3" opacity="0.5"/>
-  <text x="110" y="112" text-anchor="middle" font-size="9" fill="#7a6e62" font-family="monospace">folds mirror each other</text>
-</svg>`,
-
-pl_accordion:`<svg viewBox="0 0 280 120" xmlns="http://www.w3.org/2000/svg">
-  <line x1="10" y1="105" x2="270" y2="105" stroke="#3d3328" stroke-width="0.75"/>
-  <!-- accordion zigzag folds -->
-  <polyline points="20,30 40,70 60,30 80,70 100,30 120,70 140,30 160,70 180,30 200,70 220,30 240,70"
-    fill="none" stroke="#d490b8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-  <!-- fold highlights -->
-  <circle cx="40" cy="70" r="3" fill="#c8923a" opacity="0.75"/>
-  <circle cx="80" cy="70" r="3" fill="#c8923a" opacity="0.75"/>
-  <circle cx="120" cy="70" r="3" fill="#c8923a" opacity="0.75"/>
-  <circle cx="160" cy="70" r="3" fill="#c8923a" opacity="0.75"/>
-  <circle cx="200" cy="70" r="3" fill="#c8923a" opacity="0.75"/>
-  <circle cx="20" cy="30" r="3" fill="#c8923a" opacity="0.45"/>
-  <circle cx="60" cy="30" r="3" fill="#c8923a" opacity="0.45"/>
-  <circle cx="100" cy="30" r="3" fill="#c8923a" opacity="0.45"/>
-  <circle cx="140" cy="30" r="3" fill="#c8923a" opacity="0.45"/>
-  <circle cx="180" cy="30" r="3" fill="#c8923a" opacity="0.45"/>
-  <circle cx="220" cy="30" r="3" fill="#c8923a" opacity="0.45"/>
-  <text x="140" y="115" text-anchor="middle" font-size="9" fill="#7a6e62" font-family="monospace">equal up + down folds</text>
-</svg>`,
-
-// SMOCKING ──────────────────────────────────────────────────────────────────
-sm_cable:`<svg viewBox="0 0 280 120" xmlns="http://www.w3.org/2000/svg">
-  <!-- pleated columns -->
-  <g opacity="0.3">
-    <line x1="28" y1="20" x2="28" y2="100" stroke="#3a6b5a" stroke-width="6" stroke-linecap="round"/>
-    <line x1="56" y1="20" x2="56" y2="100" stroke="#3a6b5a" stroke-width="6" stroke-linecap="round"/>
-    <line x1="84" y1="20" x2="84" y2="100" stroke="#3a6b5a" stroke-width="6" stroke-linecap="round"/>
-    <line x1="112" y1="20" x2="112" y2="100" stroke="#3a6b5a" stroke-width="6" stroke-linecap="round"/>
-    <line x1="140" y1="20" x2="140" y2="100" stroke="#3a6b5a" stroke-width="6" stroke-linecap="round"/>
-    <line x1="168" y1="20" x2="168" y2="100" stroke="#3a6b5a" stroke-width="6" stroke-linecap="round"/>
-    <line x1="196" y1="20" x2="196" y2="100" stroke="#3a6b5a" stroke-width="6" stroke-linecap="round"/>
-    <line x1="224" y1="20" x2="224" y2="100" stroke="#3a6b5a" stroke-width="6" stroke-linecap="round"/>
+sm_wave:`<svg viewBox="0 0 220 110" xmlns="http://www.w3.org/2000/svg">
+  <g opacity="0.11">
+    <line x1="20" y1="16" x2="20" y2="88" stroke="#3a6b5a" stroke-width="6" stroke-linecap="round"/>
+    <line x1="48" y1="16" x2="48" y2="88" stroke="#3a6b5a" stroke-width="6" stroke-linecap="round"/>
+    <line x1="76" y1="16" x2="76" y2="88" stroke="#3a6b5a" stroke-width="6" stroke-linecap="round"/>
+    <line x1="104" y1="16" x2="104" y2="88" stroke="#3a6b5a" stroke-width="6" stroke-linecap="round"/>
+    <line x1="132" y1="16" x2="132" y2="88" stroke="#3a6b5a" stroke-width="6" stroke-linecap="round"/>
+    <line x1="160" y1="16" x2="160" y2="88" stroke="#3a6b5a" stroke-width="6" stroke-linecap="round"/>
+    <line x1="188" y1="16" x2="188" y2="88" stroke="#3a6b5a" stroke-width="6" stroke-linecap="round"/>
   </g>
-  <!-- cable stitches: alternating above/below -->
-  <line x1="28" y1="42" x2="56" y2="42" stroke="#7fd4b8" stroke-width="2.2" stroke-linecap="round"/>
-  <line x1="56" y1="50" x2="84" y2="50" stroke="#7fd4b8" stroke-width="2.2" stroke-linecap="round"/>
-  <line x1="84" y1="42" x2="112" y2="42" stroke="#7fd4b8" stroke-width="2.2" stroke-linecap="round"/>
-  <line x1="112" y1="50" x2="140" y2="50" stroke="#7fd4b8" stroke-width="2.2" stroke-linecap="round"/>
-  <line x1="140" y1="42" x2="168" y2="42" stroke="#7fd4b8" stroke-width="2.2" stroke-linecap="round"/>
-  <line x1="168" y1="50" x2="196" y2="50" stroke="#7fd4b8" stroke-width="2.2" stroke-linecap="round"/>
-  <line x1="196" y1="42" x2="224" y2="42" stroke="#7fd4b8" stroke-width="2.2" stroke-linecap="round"/>
-  <!-- dots at pleat tops -->
-  <circle cx="28" cy="42" r="2.5" fill="#c8923a"/>
-  <circle cx="56" cy="50" r="2.5" fill="#c8923a"/>
-  <circle cx="84" cy="42" r="2.5" fill="#c8923a"/>
-  <circle cx="112" cy="50" r="2.5" fill="#c8923a"/>
-  <circle cx="140" cy="42" r="2.5" fill="#c8923a"/>
-  <circle cx="168" cy="50" r="2.5" fill="#c8923a"/>
-  <circle cx="196" cy="42" r="2.5" fill="#c8923a"/>
-  <circle cx="224" cy="50" r="2.5" fill="#c8923a"/>
-  <text x="140" y="112" text-anchor="middle" font-size="9" fill="#7a6e62" font-family="monospace">thread alternates above · below</text>
+  <polyline points="20,56 48,36 76,56 104,36 132,56 160,36 188,56"
+    fill="none" stroke="#3a6b5a" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+  <polyline points="20,62 48,82 76,62 104,82 132,62 160,82 188,62"
+    fill="none" stroke="#7c3e2b" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" opacity="0.6"/>
+  <text x="110" y="104" text-anchor="middle" font-size="9" fill="#8a7f74" font-family="sans-serif">two wave rows · diamond pattern</text>
 </svg>`,
-
-sm_wave:`<svg viewBox="0 0 280 120" xmlns="http://www.w3.org/2000/svg">
-  <g opacity="0.25">
-    <line x1="24" y1="20" x2="24" y2="100" stroke="#3a6b5a" stroke-width="6" stroke-linecap="round"/>
-    <line x1="52" y1="20" x2="52" y2="100" stroke="#3a6b5a" stroke-width="6" stroke-linecap="round"/>
-    <line x1="80" y1="20" x2="80" y2="100" stroke="#3a6b5a" stroke-width="6" stroke-linecap="round"/>
-    <line x1="108" y1="20" x2="108" y2="100" stroke="#3a6b5a" stroke-width="6" stroke-linecap="round"/>
-    <line x1="136" y1="20" x2="136" y2="100" stroke="#3a6b5a" stroke-width="6" stroke-linecap="round"/>
-    <line x1="164" y1="20" x2="164" y2="100" stroke="#3a6b5a" stroke-width="6" stroke-linecap="round"/>
-    <line x1="192" y1="20" x2="192" y2="100" stroke="#3a6b5a" stroke-width="6" stroke-linecap="round"/>
-    <line x1="220" y1="20" x2="220" y2="100" stroke="#3a6b5a" stroke-width="6" stroke-linecap="round"/>
+sm_honeycomb:`<svg viewBox="0 0 220 110" xmlns="http://www.w3.org/2000/svg">
+  <g opacity="0.11">
+    <line x1="16" y1="16" x2="16" y2="88" stroke="#3a6b5a" stroke-width="5" stroke-linecap="round"/>
+    <line x1="40" y1="16" x2="40" y2="88" stroke="#3a6b5a" stroke-width="5" stroke-linecap="round"/>
+    <line x1="64" y1="16" x2="64" y2="88" stroke="#3a6b5a" stroke-width="5" stroke-linecap="round"/>
+    <line x1="88" y1="16" x2="88" y2="88" stroke="#3a6b5a" stroke-width="5" stroke-linecap="round"/>
+    <line x1="112" y1="16" x2="112" y2="88" stroke="#3a6b5a" stroke-width="5" stroke-linecap="round"/>
+    <line x1="136" y1="16" x2="136" y2="88" stroke="#3a6b5a" stroke-width="5" stroke-linecap="round"/>
+    <line x1="160" y1="16" x2="160" y2="88" stroke="#3a6b5a" stroke-width="5" stroke-linecap="round"/>
+    <line x1="184" y1="16" x2="184" y2="88" stroke="#3a6b5a" stroke-width="5" stroke-linecap="round"/>
   </g>
-  <!-- wave up -->
-  <polyline points="24,62 52,42 80,62 108,42 136,62 164,42 192,62 220,42"
-    fill="none" stroke="#7fd4b8" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
-  <!-- wave down (mirror) -->
-  <polyline points="24,68 52,88 80,68 108,88 136,68 164,88 192,68 220,88"
-    fill="none" stroke="#c8923a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" opacity="0.7"/>
-  <text x="140" y="112" text-anchor="middle" font-size="9" fill="#7a6e62" font-family="monospace">diamond pattern · two wave rows</text>
+  <line x1="16" y1="33" x2="40" y2="33" stroke="#3a6b5a" stroke-width="2" stroke-linecap="round"/>
+  <line x1="40" y1="33" x2="40" y2="57" stroke="#3a6b5a" stroke-width="1" stroke-linecap="round" opacity="0.35"/>
+  <line x1="40" y1="57" x2="64" y2="57" stroke="#3a6b5a" stroke-width="2" stroke-linecap="round"/>
+  <line x1="64" y1="57" x2="64" y2="33" stroke="#3a6b5a" stroke-width="1" stroke-linecap="round" opacity="0.35"/>
+  <line x1="64" y1="33" x2="88" y2="33" stroke="#3a6b5a" stroke-width="2" stroke-linecap="round"/>
+  <line x1="88" y1="33" x2="88" y2="57" stroke="#3a6b5a" stroke-width="1" stroke-linecap="round" opacity="0.35"/>
+  <line x1="88" y1="57" x2="112" y2="57" stroke="#3a6b5a" stroke-width="2" stroke-linecap="round"/>
+  <line x1="112" y1="57" x2="112" y2="33" stroke="#3a6b5a" stroke-width="1" stroke-linecap="round" opacity="0.35"/>
+  <line x1="112" y1="33" x2="136" y2="33" stroke="#3a6b5a" stroke-width="2" stroke-linecap="round"/>
+  <line x1="28" y1="57" x2="52" y2="57" stroke="#7c3e2b" stroke-width="2" stroke-linecap="round" opacity="0.65"/>
+  <line x1="76" y1="57" x2="100" y2="57" stroke="#7c3e2b" stroke-width="2" stroke-linecap="round" opacity="0.65"/>
+  <line x1="124" y1="57" x2="148" y2="57" stroke="#7c3e2b" stroke-width="2" stroke-linecap="round" opacity="0.65"/>
+  <text x="110" y="104" text-anchor="middle" font-size="9" fill="#8a7f74" font-family="sans-serif">gather 2 pleats · release · repeat</text>
 </svg>`,
-
-sm_honeycomb:`<svg viewBox="0 0 280 120" xmlns="http://www.w3.org/2000/svg">
-  <g opacity="0.2">
-    <line x1="20" y1="15" x2="20" y2="105" stroke="#3a6b5a" stroke-width="6" stroke-linecap="round"/>
-    <line x1="50" y1="15" x2="50" y2="105" stroke="#3a6b5a" stroke-width="6" stroke-linecap="round"/>
-    <line x1="80" y1="15" x2="80" y2="105" stroke="#3a6b5a" stroke-width="6" stroke-linecap="round"/>
-    <line x1="110" y1="15" x2="110" y2="105" stroke="#3a6b5a" stroke-width="6" stroke-linecap="round"/>
-    <line x1="140" y1="15" x2="140" y2="105" stroke="#3a6b5a" stroke-width="6" stroke-linecap="round"/>
-    <line x1="170" y1="15" x2="170" y2="105" stroke="#3a6b5a" stroke-width="6" stroke-linecap="round"/>
-    <line x1="200" y1="15" x2="200" y2="105" stroke="#3a6b5a" stroke-width="6" stroke-linecap="round"/>
-    <line x1="230" y1="15" x2="230" y2="105" stroke="#3a6b5a" stroke-width="6" stroke-linecap="round"/>
-    <line x1="260" y1="15" x2="260" y2="105" stroke="#3a6b5a" stroke-width="6" stroke-linecap="round"/>
-  </g>
-  <!-- honeycomb cells -->
-  <line x1="20" y1="35" x2="50" y2="35" stroke="#7fd4b8" stroke-width="2" stroke-linecap="round"/>
-  <line x1="50" y1="35" x2="50" y2="65" stroke="#7fd4b8" stroke-width="1" stroke-linecap="round" opacity="0.4"/>
-  <line x1="50" y1="65" x2="80" y2="65" stroke="#7fd4b8" stroke-width="2" stroke-linecap="round"/>
-  <line x1="80" y1="65" x2="80" y2="35" stroke="#7fd4b8" stroke-width="1" stroke-linecap="round" opacity="0.4"/>
-  <line x1="80" y1="35" x2="110" y2="35" stroke="#7fd4b8" stroke-width="2" stroke-linecap="round"/>
-  <line x1="110" y1="35" x2="110" y2="65" stroke="#7fd4b8" stroke-width="1" stroke-linecap="round" opacity="0.4"/>
-  <line x1="110" y1="65" x2="140" y2="65" stroke="#7fd4b8" stroke-width="2" stroke-linecap="round"/>
-  <line x1="140" y1="65" x2="140" y2="35" stroke="#7fd4b8" stroke-width="1" stroke-linecap="round" opacity="0.4"/>
-  <line x1="140" y1="35" x2="170" y2="35" stroke="#7fd4b8" stroke-width="2" stroke-linecap="round"/>
-  <!-- row 2 offset -->
-  <line x1="35" y1="65" x2="65" y2="65" stroke="#c8923a" stroke-width="2" stroke-linecap="round" opacity="0.8"/>
-  <line x1="95" y1="65" x2="125" y2="65" stroke="#c8923a" stroke-width="2" stroke-linecap="round" opacity="0.8"/>
-  <line x1="155" y1="65" x2="185" y2="65" stroke="#c8923a" stroke-width="2" stroke-linecap="round" opacity="0.8"/>
-  <text x="140" y="112" text-anchor="middle" font-size="9" fill="#7a6e62" font-family="monospace">gather 2 pleats · release · repeat</text>
+fo_origami:`<svg viewBox="0 0 220 110" xmlns="http://www.w3.org/2000/svg">
+  <rect x="10" y="64" width="200" height="30" rx="2" fill="#ede7db" stroke="#d8cfc3" stroke-width="1"/>
+  <polygon points="28,64 68,24 108,64" fill="#c4b9ae" stroke="#7c3e2b" stroke-width="1.2" opacity="0.8"/>
+  <polygon points="108,64 148,24 188,64" fill="#d8cfc3" stroke="#7c3e2b" stroke-width="1.2" opacity="0.8"/>
+  <line x1="68" y1="24" x2="68" y2="64" stroke="#7c3e2b" stroke-width="1" stroke-dasharray="3 3" opacity="0.3"/>
+  <line x1="148" y1="24" x2="148" y2="64" stroke="#7c3e2b" stroke-width="1" stroke-dasharray="3 3" opacity="0.3"/>
+  <line x1="28" y1="64" x2="68" y2="24" stroke="#c4613e" stroke-width="1.5" stroke-linecap="round"/>
+  <line x1="68" y1="24" x2="108" y2="64" stroke="#c4613e" stroke-width="1.5" stroke-linecap="round"/>
+  <line x1="108" y1="64" x2="148" y2="24" stroke="#c4613e" stroke-width="1.5" stroke-linecap="round"/>
+  <line x1="148" y1="24" x2="188" y2="64" stroke="#c4613e" stroke-width="1.5" stroke-linecap="round"/>
+  <text x="110" y="106" text-anchor="middle" font-size="9" fill="#8a7f74" font-family="sans-serif">crease sharp · press flat</text>
 </svg>`,
-
-// FABRIC FOLDING ────────────────────────────────────────────────────────────
-fo_origami:`<svg viewBox="0 0 280 120" xmlns="http://www.w3.org/2000/svg">
-  <!-- base fabric -->
-  <rect x="20" y="70" width="240" height="36" rx="2" fill="#0e1825" stroke="#2a5a8a" stroke-width="1" opacity="0.8"/>
-  <!-- folded triangle forms -->
-  <polygon points="40,70 80,30 120,70" fill="#2a5a8a" stroke="#7ab8e8" stroke-width="1.2" opacity="0.85"/>
-  <polygon points="120,70 160,30 200,70" fill="#1a3d5c" stroke="#7ab8e8" stroke-width="1.2" opacity="0.85"/>
-  <!-- shadow folds -->
-  <line x1="80" y1="30" x2="80" y2="70" stroke="#7ab8e8" stroke-width="1" stroke-dasharray="3 3" opacity="0.4"/>
-  <line x1="160" y1="30" x2="160" y2="70" stroke="#7ab8e8" stroke-width="1" stroke-dasharray="3 3" opacity="0.4"/>
-  <!-- crease lines -->
-  <line x1="40" y1="70" x2="80" y2="30" stroke="#c8923a" stroke-width="1.5" stroke-linecap="round"/>
-  <line x1="80" y1="30" x2="120" y2="70" stroke="#c8923a" stroke-width="1.5" stroke-linecap="round"/>
-  <line x1="120" y1="70" x2="160" y2="30" stroke="#c8923a" stroke-width="1.5" stroke-linecap="round"/>
-  <line x1="160" y1="30" x2="200" y2="70" stroke="#c8923a" stroke-width="1.5" stroke-linecap="round"/>
-  <text x="140" y="116" text-anchor="middle" font-size="9" fill="#7a6e62" font-family="monospace">crease sharp · press flat</text>
+fo_cathedral:`<svg viewBox="0 0 220 110" xmlns="http://www.w3.org/2000/svg">
+  <rect x="12" y="14" width="52" height="52" rx="2" fill="#ede7db" stroke="#d8cfc3" stroke-width="1.2"/>
+  <rect x="74" y="14" width="52" height="52" rx="2" fill="#ede7db" stroke="#d8cfc3" stroke-width="1.2"/>
+  <polygon points="12,14 38,40 64,14" fill="#c4b9ae" stroke="#8a7f74" stroke-width="1"/>
+  <polygon points="64,14 38,40 64,66" fill="#d8cfc3" stroke="#8a7f74" stroke-width="1" opacity="0.8"/>
+  <polygon points="12,66 38,40 64,66" fill="#c4b9ae" stroke="#8a7f74" stroke-width="1" opacity="0.65"/>
+  <polygon points="12,14 38,40 12,66" fill="#d8cfc3" stroke="#8a7f74" stroke-width="1" opacity="0.55"/>
+  <polygon points="38,27 50,40 38,53 26,40" fill="#c4613e" opacity="0.38"/>
+  <polygon points="74,14 100,40 126,14" fill="#c4b9ae" stroke="#8a7f74" stroke-width="1"/>
+  <polygon points="126,14 100,40 126,66" fill="#d8cfc3" stroke="#8a7f74" stroke-width="1" opacity="0.8"/>
+  <polygon points="74,66 100,40 126,66" fill="#c4b9ae" stroke="#8a7f74" stroke-width="1" opacity="0.65"/>
+  <polygon points="74,14 100,40 74,66" fill="#d8cfc3" stroke="#8a7f74" stroke-width="1" opacity="0.55"/>
+  <polygon points="100,27 112,40 100,53 88,40" fill="#c4613e" opacity="0.38"/>
+  <text x="162" y="38" text-anchor="middle" font-size="9" fill="#8a7f74" font-family="sans-serif">fold 4</text>
+  <text x="162" y="50" text-anchor="middle" font-size="9" fill="#8a7f74" font-family="sans-serif">corners</text>
+  <text x="162" y="62" text-anchor="middle" font-size="9" fill="#8a7f74" font-family="sans-serif">inward</text>
+  <text x="90" y="104" text-anchor="middle" font-size="9" fill="#8a7f74" font-family="sans-serif">contrast square at centre</text>
 </svg>`,
-
-fo_cathedral:`<svg viewBox="0 0 280 120" xmlns="http://www.w3.org/2000/svg">
-  <!-- background squares -->
-  <rect x="14" y="20" width="48" height="48" rx="2" fill="#0e1825" stroke="#2a5a8a" stroke-width="1.2"/>
-  <rect x="70" y="20" width="48" height="48" rx="2" fill="#0e1825" stroke="#2a5a8a" stroke-width="1.2"/>
-  <rect x="126" y="20" width="48" height="48" rx="2" fill="#0e1825" stroke="#2a5a8a" stroke-width="1.2"/>
-  <!-- folded corners pointing to center -->
-  <polygon points="14,20 38,44 62,20" fill="#1a3d5c" stroke="#7ab8e8" stroke-width="1"/>
-  <polygon points="62,20 38,44 62,68" fill="#2a5a8a" stroke="#7ab8e8" stroke-width="1" opacity="0.75"/>
-  <polygon points="14,68 38,44 62,68" fill="#1a3d5c" stroke="#7ab8e8" stroke-width="1" opacity="0.6"/>
-  <polygon points="14,20 38,44 14,68" fill="#2a5a8a" stroke="#7ab8e8" stroke-width="1" opacity="0.5"/>
-  <!-- center diamond reveal -->
-  <polygon points="38,32 50,44 38,56 26,44" fill="#c8923a" opacity="0.55"/>
-  <!-- repeat smaller -->
-  <polygon points="70,20 94,44 118,20" fill="#1a3d5c" stroke="#7ab8e8" stroke-width="1"/>
-  <polygon points="118,20 94,44 118,68" fill="#2a5a8a" stroke="#7ab8e8" stroke-width="1" opacity="0.75"/>
-  <polygon points="70,68 94,44 118,68" fill="#1a3d5c" stroke="#7ab8e8" stroke-width="1" opacity="0.6"/>
-  <polygon points="70,20 94,44 70,68" fill="#2a5a8a" stroke="#7ab8e8" stroke-width="1" opacity="0.5"/>
-  <polygon points="94,32 106,44 94,56 82,44" fill="#c8923a" opacity="0.55"/>
-  <text x="180" y="50" font-size="9" fill="#7a6e62" font-family="monospace">fold all 4</text>
-  <text x="180" y="62" font-size="9" fill="#7a6e62" font-family="monospace">corners in</text>
-  <text x="140" y="112" text-anchor="middle" font-size="9" fill="#7a6e62" font-family="monospace">reveals contrasting square at centre</text>
+fo_twist:`<svg viewBox="0 0 220 110" xmlns="http://www.w3.org/2000/svg">
+  <path d="M12 76 Q48 34 88 76 Q128 118 168 76 Q196 46 208 54"
+    fill="none" stroke="#c4b9ae" stroke-width="18" stroke-linecap="round" opacity="0.55"/>
+  <path d="M12 76 Q48 34 88 76 Q128 118 168 76 Q196 46 208 54"
+    fill="none" stroke="#7c3e2b" stroke-width="1.5" stroke-linecap="round" opacity="0.45"/>
+  <path d="M12 70 Q48 28 88 70 Q128 112 168 70 Q196 40 208 48"
+    fill="none" stroke="#c4613e" stroke-width="1" stroke-linecap="round" opacity="0.3"/>
+  <circle cx="48" cy="52" r="3.5" fill="#7c3e2b" opacity="0.5"/>
+  <circle cx="128" cy="88" r="3.5" fill="#7c3e2b" opacity="0.5"/>
+  <circle cx="196" cy="54" r="3.5" fill="#7c3e2b" opacity="0.5"/>
+  <text x="110" y="106" text-anchor="middle" font-size="9" fill="#8a7f74" font-family="sans-serif">twist 180° · tack at each turn</text>
 </svg>`,
-
-fo_twist:`<svg viewBox="0 0 280 120" xmlns="http://www.w3.org/2000/svg">
-  <defs>
-    <linearGradient id="tg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#2a5a8a" stop-opacity="0.9"/>
-      <stop offset="100%" stop-color="#7ab8e8" stop-opacity="0.5"/>
-    </linearGradient>
-  </defs>
-  <!-- twisted fabric strip -->
-  <path d="M20 80 Q60 40 100 80 Q140 120 180 80 Q220 40 260 60" 
-    fill="none" stroke="url(#tg)" stroke-width="18" stroke-linecap="round" opacity="0.8"/>
-  <path d="M20 80 Q60 40 100 80 Q140 120 180 80 Q220 40 260 60" 
-    fill="none" stroke="#7ab8e8" stroke-width="1.5" stroke-linecap="round" opacity="0.6"/>
-  <!-- highlight edge -->
-  <path d="M20 74 Q60 34 100 74 Q140 114 180 74 Q220 34 260 54" 
-    fill="none" stroke="#c8923a" stroke-width="1" stroke-linecap="round" opacity="0.5"/>
-  <!-- twist dots -->
-  <circle cx="60" cy="56" r="4" fill="#c8923a" opacity="0.75"/>
-  <circle cx="140" cy="90" r="4" fill="#c8923a" opacity="0.75"/>
-  <circle cx="220" cy="56" r="4" fill="#c8923a" opacity="0.75"/>
-  <text x="140" y="112" text-anchor="middle" font-size="9" fill="#7a6e62" font-family="monospace">twist 180° · tack at each turn</text>
+sr_chenille:`<svg viewBox="0 0 220 110" xmlns="http://www.w3.org/2000/svg">
+  <rect x="12" y="68" width="188" height="8" rx="1.5" fill="#f5ebe5" stroke="#d8cfc3" stroke-width="0.75"/>
+  <rect x="12" y="60" width="188" height="8" rx="1.5" fill="#ede7db" stroke="#d8cfc3" stroke-width="0.75"/>
+  <rect x="12" y="52" width="188" height="8" rx="1.5" fill="#e4dcd0" stroke="#c4b9ae" stroke-width="0.75"/>
+  <rect x="12" y="44" width="188" height="8" rx="1.5" fill="#d8cfc3" stroke="#c4b9ae" stroke-width="0.75"/>
+  <rect x="12" y="36" width="188" height="8" rx="1.5" fill="#c4b9ae" stroke="#8a7f74" stroke-width="0.75"/>
+  <line x1="50" y1="36" x2="50" y2="76" stroke="#7c3e2b" stroke-width="2" stroke-linecap="round"/>
+  <line x1="88" y1="36" x2="88" y2="76" stroke="#7c3e2b" stroke-width="2" stroke-linecap="round"/>
+  <line x1="126" y1="36" x2="126" y2="76" stroke="#7c3e2b" stroke-width="2" stroke-linecap="round"/>
+  <line x1="164" y1="36" x2="164" y2="76" stroke="#7c3e2b" stroke-width="2" stroke-linecap="round"/>
+  <path d="M50 44 Q53 50 50 56 Q47 62 50 68" fill="none" stroke="#c4613e" stroke-width="1.2" opacity="0.45"/>
+  <path d="M88 42 Q91 48 88 54 Q85 60 88 66" fill="none" stroke="#c4613e" stroke-width="1.2" opacity="0.45"/>
+  <text x="190" y="28" font-size="13" fill="#7c3e2b" opacity="0.35" font-family="serif">✂</text>
+  <text x="110" y="104" text-anchor="middle" font-size="9" fill="#8a7f74" font-family="sans-serif">slash between rows · fray to bloom</text>
 </svg>`,
-
-// SLASH & REVEAL ────────────────────────────────────────────────────────────
-sr_chenille:`<svg viewBox="0 0 280 120" xmlns="http://www.w3.org/2000/svg">
-  <!-- fabric layers stacked -->
-  <rect x="16" y="72" width="248" height="10" rx="2" fill="#2a1a0a" stroke="#8a5a2a" stroke-width="1" opacity="0.5"/>
-  <rect x="16" y="62" width="248" height="10" rx="2" fill="#3a2210" stroke="#8a5a2a" stroke-width="1" opacity="0.6"/>
-  <rect x="16" y="52" width="248" height="10" rx="2" fill="#4a2e14" stroke="#8a5a2a" stroke-width="1" opacity="0.7"/>
-  <rect x="16" y="42" width="248" height="10" rx="2" fill="#5a3a1a" stroke="#8a5a2a" stroke-width="1" opacity="0.8"/>
-  <rect x="16" y="32" width="248" height="10" rx="2" fill="#6a4820" stroke="#8a5a2a" stroke-width="1" opacity="0.9"/>
-  <!-- slash lines -->
-  <line x1="60" y1="32" x2="60" y2="72" stroke="#e8b46a" stroke-width="1.8" stroke-linecap="round"/>
-  <line x1="104" y1="32" x2="104" y2="72" stroke="#e8b46a" stroke-width="1.8" stroke-linecap="round"/>
-  <line x1="148" y1="32" x2="148" y2="72" stroke="#e8b46a" stroke-width="1.8" stroke-linecap="round"/>
-  <line x1="192" y1="32" x2="192" y2="72" stroke="#e8b46a" stroke-width="1.8" stroke-linecap="round"/>
-  <!-- frayed edges at slashes -->
-  <path d="M60 40 Q63 45 60 50 Q57 55 60 60" fill="none" stroke="#d4a87a" stroke-width="1.2" opacity="0.6"/>
-  <path d="M104 38 Q107 43 104 48 Q101 53 104 58" fill="none" stroke="#d4a87a" stroke-width="1.2" opacity="0.6"/>
-  <!-- scissors icon -->
-  <text x="230" y="40" font-size="14" fill="#e8b46a" opacity="0.5" font-family="serif">✂</text>
-  <text x="140" y="112" text-anchor="middle" font-size="9" fill="#7a6e62" font-family="monospace">cut between stitch rows · fray reveals</text>
+sr_broderie:`<svg viewBox="0 0 220 110" xmlns="http://www.w3.org/2000/svg">
+  <rect x="12" y="16" width="196" height="74" rx="3" fill="#ede7db" stroke="#d8cfc3" stroke-width="1.2"/>
+  <circle cx="52" cy="53" r="16" fill="#f7f3ec" stroke="#d8cfc3" stroke-width="1"/>
+  <circle cx="110" cy="53" r="16" fill="#f7f3ec" stroke="#d8cfc3" stroke-width="1"/>
+  <circle cx="168" cy="53" r="16" fill="#f7f3ec" stroke="#d8cfc3" stroke-width="1"/>
+  <circle cx="52" cy="53" r="16" fill="none" stroke="#7c3e2b" stroke-width="2.5" stroke-dasharray="4 3"/>
+  <circle cx="110" cy="53" r="16" fill="none" stroke="#7c3e2b" stroke-width="2.5" stroke-dasharray="4 3"/>
+  <circle cx="168" cy="53" r="16" fill="none" stroke="#7c3e2b" stroke-width="2.5" stroke-dasharray="4 3"/>
+  <circle cx="52" cy="53" r="9" fill="#c4613e" opacity="0.1"/>
+  <circle cx="110" cy="53" r="9" fill="#c4613e" opacity="0.1"/>
+  <circle cx="168" cy="53" r="9" fill="#c4613e" opacity="0.1"/>
+  <text x="110" y="103" text-anchor="middle" font-size="9" fill="#8a7f74" font-family="sans-serif">pierce · overcast edge · open hole</text>
 </svg>`,
-
-sr_broderie:`<svg viewBox="0 0 280 120" xmlns="http://www.w3.org/2000/svg">
-  <!-- top fabric layer -->
-  <rect x="16" y="20" width="248" height="72" rx="3" fill="#3a2210" stroke="#8a5a2a" stroke-width="1.2"/>
-  <!-- eyelet holes -->
-  <circle cx="60" cy="56" r="16" fill="#0e0c0a" stroke="#8a5a2a" stroke-width="1"/>
-  <circle cx="120" cy="56" r="16" fill="#0e0c0a" stroke="#8a5a2a" stroke-width="1"/>
-  <circle cx="180" cy="56" r="16" fill="#0e0c0a" stroke="#8a5a2a" stroke-width="1"/>
-  <!-- buttonhole stitches around eyelets -->
-  <circle cx="60" cy="56" r="16" fill="none" stroke="#e8b46a" stroke-width="2.5" stroke-dasharray="4 3"/>
-  <circle cx="120" cy="56" r="16" fill="none" stroke="#e8b46a" stroke-width="2.5" stroke-dasharray="4 3"/>
-  <circle cx="180" cy="56" r="16" fill="none" stroke="#e8b46a" stroke-width="2.5" stroke-dasharray="4 3"/>
-  <!-- reveal layer beneath (contrasting) -->
-  <circle cx="60" cy="56" r="13" fill="#1a3d5c" opacity="0.6"/>
-  <circle cx="120" cy="56" r="13" fill="#1a3d5c" opacity="0.6"/>
-  <circle cx="180" cy="56" r="13" fill="#1a3d5c" opacity="0.6"/>
-  <text x="140" y="112" text-anchor="middle" font-size="9" fill="#7a6e62" font-family="monospace">stitch eyelet · pierce centre · fray open</text>
-</svg>`,
-
-sr_cut_applique:`<svg viewBox="0 0 280 120" xmlns="http://www.w3.org/2000/svg">
-  <!-- base fabric -->
-  <rect x="16" y="20" width="248" height="80" rx="3" fill="#1a3d5c" stroke="#2a5a8a" stroke-width="1.2"/>
-  <!-- top layer with cut shapes -->
-  <rect x="16" y="20" width="248" height="80" rx="3" fill="#3a2210" stroke="#8a5a2a" stroke-width="1.2" opacity="0.8"/>
-  <!-- cut-away diamond revealing base -->
-  <polygon points="100,35 140,60 100,85 60,60" fill="#1a3d5c" stroke="#e8b46a" stroke-width="1.5"/>
-  <!-- buttonhole edge on cut -->
-  <polygon points="100,35 140,60 100,85 60,60" fill="none" stroke="#e8b46a" stroke-width="2.5" stroke-dasharray="3 3"/>
-  <!-- smaller reveal -->
-  <polygon points="190,40 215,60 190,80 165,60" fill="#1a3d5c" stroke="#e8b46a" stroke-width="1.5"/>
-  <polygon points="190,40 215,60 190,80 165,60" fill="none" stroke="#e8b46a" stroke-width="2.5" stroke-dasharray="3 3"/>
-  <!-- scissors -->
-  <text x="34" y="48" font-size="13" fill="#e8b46a" opacity="0.45" font-family="serif">✂</text>
-  <text x="140" y="112" text-anchor="middle" font-size="9" fill="#7a6e62" font-family="monospace">stitch shape · cut top layer away</text>
+sr_cut_applique:`<svg viewBox="0 0 220 110" xmlns="http://www.w3.org/2000/svg">
+  <rect x="12" y="16" width="196" height="78" rx="3" fill="#c4b9ae" stroke="#8a7f74" stroke-width="1"/>
+  <rect x="12" y="16" width="196" height="78" rx="3" fill="#ede7db" stroke="#d8cfc3" stroke-width="1.2" opacity="0.88"/>
+  <polygon points="88,28 128,56 88,84 48,56" fill="#f7f3ec" stroke="#7c3e2b" stroke-width="1.5"/>
+  <polygon points="88,28 128,56 88,84 48,56" fill="none" stroke="#7c3e2b" stroke-width="2" stroke-dasharray="3 3"/>
+  <polygon points="166,34 186,56 166,78 146,56" fill="#f7f3ec" stroke="#7c3e2b" stroke-width="1.5"/>
+  <polygon points="166,34 186,56 166,78 146,56" fill="none" stroke="#7c3e2b" stroke-width="2" stroke-dasharray="3 3"/>
+  <text x="26" y="34" font-size="13" fill="#7c3e2b" opacity="0.35" font-family="serif">✂</text>
+  <text x="110" y="106" text-anchor="middle" font-size="9" fill="#8a7f74" font-family="sans-serif">stitch · cut top layer · reveal below</text>
 </svg>`
 };
 
-// ── Data ─────────────────────────────────────────────────────────────────────
 const CATS = [
   {
-    id:"pleating",
-    num:"01",
-    label:"Pleating",
-    titleItalic:"Pleat",
-    titleRest:"ing",
+    id:"pleating", num:"01", label:"Pleating",
+    titleEm:"Pleat", titleRest:"ing",
+    heroClass:"pleating",
     tagline:"controlled volume · structured dimension",
-    accentColor:"#8a3a6b",
-    swatchColor:"#8a3a6b",
-    heroGlow:"rgba(138,58,107,.08)",
     chips:["knife pleat","box pleat","accordion pleat","released pleat","taped pleat"],
     hint:"Mark your pleat lines before folding. Press with a hot iron to set creases sharp — heat is your best tool here.",
     stitches:[
-      { id:"pl_knife", n:"K", name:"knife pleat", sub:"all folds face one direction", difficulty:1,
+      { n:"K", diagId:"pl_knife", name:"knife pleat", sub:"all folds face one direction", difficulty:1,
         desc:"All folds pressed in one direction, like a rank of soldiers. Mark, fold, press. Stitch at the top to hold; release the rest for volume below.",
-        detail:"<strong>Key rule:</strong> all pleats face the same direction. Wrong side of fabric marks are your friend — chalk lines before folding."
-      },
-      { id:"pl_box", n:"B", name:"box pleat", sub:"two folds mirror each other at centre", difficulty:2,
-        desc:"Two knife pleats that face away from each other on the front, meeting at the back. Creates a flat, structured panel with hidden volume underneath.",
-        detail:"<strong>Key rule:</strong> the distance from fold to fold equals twice the pleat depth. Mark and pin both folds before pressing."
-      },
-      { id:"pl_accordion", n:"A", name:"accordion pleat", sub:"equal up and down folds · even spacing", difficulty:2,
+        detail:"Key rule: all pleats face the same direction. Mark chalk lines on the wrong side before folding." },
+      { n:"B", diagId:"pl_box", name:"box pleat", sub:"two folds mirror at centre", difficulty:2,
+        desc:"Two knife pleats facing away from each other on the front, meeting at the back. Creates a flat, structured panel with hidden volume underneath.",
+        detail:"Key rule: distance fold-to-fold equals twice the pleat depth. Pin both folds before pressing." },
+      { n:"A", diagId:"pl_accordion", name:"accordion pleat", sub:"equal up and down folds", difficulty:2,
         desc:"Pleats fold alternately up and down in even intervals — like paper fan folds. Best done with a pleat board or ruler for perfect consistency.",
-        detail:"<strong>Key rule:</strong> all folds must be exactly equal depth and spacing. Press each fold fully before moving to the next."
-      }
+        detail:"Key rule: all folds must be exactly equal depth and spacing. Press each fold fully before moving on." }
     ]
   },
   {
-    id:"smocking",
-    num:"02",
-    label:"Smocking",
-    titleItalic:"Smock",
-    titleRest:"ing",
+    id:"smocking", num:"02", label:"Smocking",
+    titleEm:"Smock", titleRest:"ing",
+    heroClass:"smocking",
     tagline:"gathered fabric · stitched into pattern",
-    accentColor:"#3a6b5a",
-    swatchColor:"#3a6b5a",
-    heroGlow:"rgba(58,107,90,.08)",
-    chips:["cable stitch","wave/chevron","honeycomb","diamond smocking","lattice smocking"],
-    hint:"Gather the fabric to roughly one-third of its flat width before stitching. Use evenly spaced dots transferred from a smocking grid for consistency.",
+    chips:["cable stitch","wave / chevron","honeycomb","diamond smocking","lattice"],
+    hint:"Gather fabric to one-third of its flat width before stitching. Use evenly spaced dots from a smocking grid for consistency.",
     stitches:[
-      { id:"sm_cable", n:"C", name:"cable stitch", sub:"thread alternates above · below needle", difficulty:2,
-        desc:"The first smocking stitch to learn. Working across the pleated columns, thread is held above the needle for one pleat and below for the next — creating a tight, rope-like hold.",
-        detail:"<strong>Key rule:</strong> consistency is everything. Pick two pleat tops at a time; cable rows form the structure other stitches build on."
-      },
-      { id:"sm_wave", n:"W", name:"wave / chevron stitch", sub:"diagonal lines forming diamond pattern", difficulty:2,
-        desc:"Thread travels diagonally up to a peak, then diagonally back down, forming waves. Two mirror rows create a diamond lattice — the most recognisable smocking pattern.",
-        detail:"<strong>Key rule:</strong> keep tension even as you move diagonally. The upper and lower cable rows anchor the wave stitches in place."
-      },
-      { id:"sm_honeycomb", n:"H", name:"honeycomb stitch", sub:"gather 2 pleats · release · repeat offset", difficulty:3,
-        desc:"The most elastic smocking stitch. Two pleats are joined at the top, then thread travels inside the fold down to the lower position and joins the next two pleats — forming hexagonal cells.",
-        detail:"<strong>Key rule:</strong> the thread travels hidden inside the pleat between rows. Honeycomb allows the most stretch, so don't pull too tight."
-      }
+      { n:"C", diagId:"sm_cable", name:"cable stitch", sub:"thread alternates above · below", difficulty:2,
+        desc:"The first smocking stitch to learn. Working across pleated columns, thread held above the needle for one pleat and below for the next — creating a tight, rope-like hold.",
+        detail:"Key rule: consistency is everything. Cable rows form the structure all other smocking stitches build on." },
+      { n:"W", diagId:"sm_wave", name:"wave / chevron stitch", sub:"diagonal lines form diamond pattern", difficulty:2,
+        desc:"Thread travels diagonally up to a peak then back down, forming waves. Two mirror rows create a diamond lattice — the most recognisable smocking pattern.",
+        detail:"Key rule: keep tension even as you move diagonally. Upper and lower cable rows anchor the waves in place." },
+      { n:"H", diagId:"sm_honeycomb", name:"honeycomb stitch", sub:"gather 2 pleats · release · offset repeat", difficulty:3,
+        desc:"The most elastic smocking stitch. Two pleats joined at the top, thread travels inside the fold down, joins the next two — forming hexagonal cells across the fabric.",
+        detail:"Key rule: thread travels hidden inside the pleat between rows. Don't pull tight — honeycomb needs to stretch." }
     ]
   },
   {
-    id:"folding",
-    num:"03",
-    label:"Fabric Folding",
-    titleItalic:"Fabric",
-    titleRest:" Folding",
+    id:"folding", num:"03", label:"Fabric Folding",
+    titleEm:"Fabric", titleRest:" Folding",
+    heroClass:"folding",
     tagline:"geometry in cloth · no cutting required",
-    accentColor:"#2a5a8a",
-    swatchColor:"#2a5a8a",
-    heroGlow:"rgba(42,90,138,.08)",
     chips:["origami fold","cathedral windows","twisted fold","prairie points","petal fold"],
-    hint:"Use starch or sizing spray before folding to get crisp creases. Contrast fabric choice matters as much as the technique itself.",
+    hint:"Use starch or sizing spray before folding for crisp creases. Contrast fabric choice matters as much as the technique itself.",
     stitches:[
-      { id:"fo_origami", n:"O", name:"origami fold", sub:"sharp crease · press flat · stitch edges", difficulty:2,
-        desc:"Paper origami translated directly into fabric. Fold along precise crease lines, press firmly with iron, then secure by stitching along folded edges — reveals geometric 3D surface texture.",
-        detail:"<strong>Key rule:</strong> 100% cotton takes creases best. Press each fold immediately after making it; don't let the fabric cool and spring back."
-      },
-      { id:"fo_cathedral", n:"CW", name:"cathedral windows", sub:"four corners fold to centre · reveals contrast square", difficulty:3,
-        desc:"A square of fabric has all four corners folded in to meet the centre — creating a frame that reveals a contrasting fabric square beneath. No raw edges, no lining needed.",
-        detail:"<strong>Key rule:</strong> the background square must be cut to exact size (8× the finished window size). Press before and after each fold stage."
-      },
-      { id:"fo_twist", n:"T", name:"twisted fold / ruched strip", sub:"twist 180° · tack at each turn", difficulty:2,
-        desc:"A fabric strip is twisted at regular intervals and tacked to a base fabric — creating a flowing three-dimensional ribbon effect. The twist angle determines how much the base shows.",
-        detail:"<strong>Key rule:</strong> keep tension consistent along the strip. Mark tack points on the base fabric first, then twist between each."
-      }
+      { n:"O", diagId:"fo_origami", name:"origami fold", sub:"sharp crease · press flat · stitch edges", difficulty:2,
+        desc:"Paper origami translated into fabric. Fold along precise crease lines, press firmly with iron, then secure by stitching along folded edges — reveals geometric 3D surface texture.",
+        detail:"Key rule: 100% cotton takes creases best. Press each fold immediately; don't let the fabric spring back." },
+      { n:"CW", diagId:"fo_cathedral", name:"cathedral windows", sub:"four corners fold to centre · contrast revealed", difficulty:3,
+        desc:"A square has all four corners folded to meet the centre — creating a frame that reveals a contrasting fabric square beneath. No raw edges, no lining needed.",
+        detail:"Key rule: cut background square to exact size (8× the finished window size). Press before and after each fold stage." },
+      { n:"T", diagId:"fo_twist", name:"twisted fold / ruched strip", sub:"twist 180° · tack at each turn", difficulty:2,
+        desc:"A fabric strip twisted at regular intervals and tacked to a base — creating a flowing three-dimensional ribbon effect. Twist angle determines how much base shows.",
+        detail:"Key rule: keep tension consistent along the strip. Mark tack points on the base fabric first, then twist between each." }
     ]
   },
   {
-    id:"slash",
-    num:"04",
-    label:"Slash & Reveal",
-    titleItalic:"Slash",
-    titleRest:" & Reveal",
+    id:"slash", num:"04", label:"Slash & Reveal",
+    titleEm:"Slash", titleRest:" & Reveal",
+    heroClass:"slash",
     tagline:"cut to expose · layers become texture",
-    accentColor:"#8a5a2a",
-    swatchColor:"#8a5a2a",
-    heroGlow:"rgba(138,90,42,.08)",
-    chips:["chenille slashing","broderie anglaise","cut appliqué","reverse appliqué","burn-out"],
-    hint:"Always stitch first, then cut — never the other way around. A pair of sharp, small scissors or a seam ripper gives the most control when slashing.",
+    chips:["chenille slashing","broderie anglaise","reverse appliqué","cut appliqué","burn-out"],
+    hint:"Always stitch first, then cut — never the other way around. Sharp small scissors or a seam ripper give the most control when slashing.",
     stitches:[
-      { id:"sr_chenille", n:"Ch", name:"chenille slashing", sub:"cut between stitch rows · fray reveals", difficulty:2,
-        desc:"Multiple fabric layers are stacked and stitched in parallel diagonal rows. Then the top layers are slashed between the stitch lines and washed — fraying to create a soft, looped chenille surface.",
-        detail:"<strong>Key rule:</strong> cut at 45° to the grain so fabric frays fully. Wash and tumble dry immediately after slashing to bloom the texture."
-      },
-      { id:"sr_broderie", n:"BA", name:"broderie anglaise", sub:"stitch eyelet · pierce centre · overcast to finish", difficulty:3,
-        desc:"Circular or oval holes are pierced in fabric and finished with dense overcast or buttonhole stitches around the edge — producing the iconic white eyelet lace pattern.",
-        detail:"<strong>Key rule:</strong> pierce the hole with a stiletto first; cutting damages the grain. Work satin stitch or buttonhole stitch densely around the pierced hole."
-      },
-      { id:"sr_cut_applique", n:"RA", name:"reverse appliqué", sub:"stitch the shape · cut the top layer away", difficulty:2,
-        desc:"Two fabric layers are basted together. A shape is stitched through both layers. The top fabric is then carefully cut away inside the stitching line — revealing the contrasting layer beneath.",
-        detail:"<strong>Key rule:</strong> cut close but not through the stitching. Clip curves, roll the seam allowance under, and slipstitch for a clean reveal edge."
-      }
+      { n:"Ch", diagId:"sr_chenille", name:"chenille slashing", sub:"slash between rows · fray to bloom", difficulty:2,
+        desc:"Multiple fabric layers stacked and stitched in parallel diagonal rows. Top layers slashed between stitch lines and washed — fraying to create a soft, looped chenille surface.",
+        detail:"Key rule: cut at 45° to the grain so fabric frays fully. Wash and tumble dry immediately after slashing to bloom the texture." },
+      { n:"BA", diagId:"sr_broderie", name:"broderie anglaise", sub:"pierce · overcast edge · open hole", difficulty:3,
+        desc:"Circular or oval holes pierced in fabric and finished with dense overcast or buttonhole stitches around the edge — producing the iconic white eyelet lace pattern.",
+        detail:"Key rule: pierce with a stiletto first; cutting damages the grain. Work buttonhole stitch densely around the pierced hole." },
+      { n:"RA", diagId:"sr_cut_applique", name:"reverse appliqué", sub:"stitch shape · cut top layer · reveal below", difficulty:2,
+        desc:"Two fabric layers basted together. A shape stitched through both layers. The top fabric carefully cut away inside the stitching line — revealing the contrasting layer beneath.",
+        detail:"Key rule: cut close but never through the stitching. Clip curves, roll seam allowance under, slipstitch for a clean reveal edge." }
     ]
   }
 ];
 
 let activeId = "pleating";
 
-// ── Build nav ────────────────────────────────────────────────────────────────
 const nav = document.getElementById("nav");
 CATS.forEach(cat => {
-  const div = document.createElement("div");
-  div.className = "nav-item" + (cat.id === activeId ? " active" : "");
-  div.dataset.id = cat.id;
-  div.innerHTML = `
-    <div class="nav-item-num">${cat.num}</div>
-    <div style="flex:1">
-      <div class="nav-item-name">${cat.label}</div>
-      <div class="nav-item-tag">${cat.tagline}</div>
-    </div>
-    <div class="nav-swatch" style="background:${cat.accentColor};opacity:0.7"></div>
-  `;
-  div.onclick = () => {
+  const btn = document.createElement("button");
+  btn.className = "nav-pill" + (cat.id === activeId ? " active" : "");
+  btn.textContent = cat.label;
+  btn.dataset.id = cat.id;
+  btn.onclick = () => {
     activeId = cat.id;
-    document.querySelectorAll(".nav-item").forEach(x => x.classList.remove("active"));
-    div.classList.add("active");
+    document.querySelectorAll(".nav-pill").forEach(x => x.classList.remove("active"));
+    btn.classList.add("active");
     render();
-    document.getElementById("content").scrollIntoView({behavior:"smooth", block:"start"});
   };
-  nav.appendChild(div);
+  nav.appendChild(btn);
 });
 
-// ── Difficulty ───────────────────────────────────────────────────────────────
-function diffHTML(level) {
+function difficultyHTML(level) {
   const labels = ["","beginner","intermediate","advanced"];
   const colors = ["","#5DCAA5","#7F77DD","#D85A30"];
-  let segs = "";
+  let dots = "";
   for (let i = 1; i <= 3; i++) {
-    segs += `<div class="diff-seg${i <= level ? ' on-'+i : ''}" style="${i<=level?'background:'+colors[level]:''}"></div>`;
+    dots += `<span class="diff-dot${i <= level ? ' on' : ''}" style="${i<=level?'background:'+colors[level]:''}"></span>`;
   }
-  return `<div class="difficulty-bar">${segs}<div class="diff-label">${labels[level]}</div></div>`;
+  return `<div class="item-difficulty">${dots}<span>${labels[level]}</span></div>`;
 }
 
-// ── Render ───────────────────────────────────────────────────────────────────
 function render() {
   const container = document.getElementById("content");
   container.innerHTML = "";
@@ -662,33 +467,31 @@ function render() {
   const card = document.createElement("div");
   card.className = "cat-card visible";
 
-  // Hero
   const hero = document.createElement("div");
-  hero.className = "cat-hero";
-  hero.style.cssText = `--hero-glow:${cat.heroGlow}`;
+  hero.className = `cat-hero ${cat.heroClass}`;
   hero.innerHTML = `
     <div class="cat-num">${cat.num} / 04</div>
-    <div class="cat-title"><em>${cat.titleItalic}</em>${cat.titleRest}</div>
+    <div class="cat-title"><em>${cat.titleEm}</em>${cat.titleRest}</div>
     <div class="cat-tagline">${cat.tagline}</div>
-    <div class="cat-chips">${cat.chips.map(k=>`<span class="cat-chip">${k}</span>`).join("")}</div>
+    <div class="stitch-chips">${cat.chips.map(k=>`<span class="stitch-chip">${k}</span>`).join("")}</div>
   `;
   card.appendChild(hero);
 
-  // Hint
-  const hint = document.createElement("div");
-  hint.className = "cat-hint";
-  hint.innerHTML = `⟶ &nbsp;${cat.hint}`;
-  card.appendChild(hint);
+  if (cat.hint) {
+    const hint = document.createElement("div");
+    hint.className = "cat-hint";
+    hint.textContent = cat.hint;
+    card.appendChild(hint);
+  }
 
-  // Items
   const list = document.createElement("div");
   list.className = "items-list";
 
   cat.stitches.forEach((s, i) => {
     const uid = `s-${cat.id}-${i}`;
-    const item = document.createElement("div");
-    item.className = "item";
-    item.innerHTML = `
+    const div = document.createElement("div");
+    div.className = "item";
+    div.innerHTML = `
       <div class="item-header" data-uid="${uid}">
         <div class="item-num">${s.n}</div>
         <div class="item-title-wrap">
@@ -698,19 +501,18 @@ function render() {
         <div class="item-toggle" id="toggle-${uid}">+</div>
       </div>
       <div class="item-body" id="${uid}">
-        <div class="item-diagram">${DIAG[s.id] || ''}</div>
+        <div class="item-diagram">${DIAG[s.diagId] || ''}</div>
         <div class="item-desc">${s.desc}</div>
         <div class="item-detail">${s.detail}</div>
-        ${diffHTML(s.difficulty)}
+        ${difficultyHTML(s.difficulty)}
       </div>
     `;
-    list.appendChild(item);
+    list.appendChild(div);
   });
 
   card.appendChild(list);
   container.appendChild(card);
 
-  // Accordion
   card.querySelectorAll(".item-header").forEach(header => {
     header.addEventListener("click", () => {
       const uid = header.dataset.uid;
